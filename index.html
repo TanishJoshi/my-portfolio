@@ -33,16 +33,43 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
+        .bi-facebook, .bi-whatsapp, .bi-twitter, .bi-github{
+            font-size: 20px;
+            color:#fff;
+        }
+
+
+
+        @media screen and (max-width: 768px) {
+        .container {
+                background-color: blue;
+                    }
+          .about{
+            width: 50%;
+          }          
+        }
+    
+
     </style>
 <body>
     <div class="container-fluid">
-        <div class="container">
+        <div class="container ">
             <div class="row text-white ">
                 <div class="col m-1 ">
-                    <h2>Hi There,<br>Im ,<span class="text-warning">Tanishq Joshi</span></h2>
-                    <button class="about mt-3 w-25 p-2 rounded-pill bg-warning text-bg-dark">
-                        <a class="fw-bold" href="">About me</a>
+                    <h2>Hi There,<br>Im, <span class="text-warning">Tanishq Joshi</span></h2>
+                    <p class="mt-3">I am pasionate about Web Development</p>
+                    <button class="about mt-2 w-25 p-2 rounded-pill bg-warning text-bg-dark">
+                        <a class="fw-bold" href=""><span class="bi bi-down"></span>About me</a>
                     </button>
+
+                    <div class="social">
+                        <ul class="d-flex list-unstyled mt-3">
+                            <li><span class="pe-3 bi bi-facebook"></span></li>
+                            <li><span class="pe-3 bi bi-whatsapp"></span></li>
+                            <li><span class="pe-3 bi bi-twitter"></span></li>
+                            <li><span class="pe-3 bi bi-github"></span></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="col m-1 d-flex justify-content-end ">
