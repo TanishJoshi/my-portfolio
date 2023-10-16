@@ -1,0 +1,538 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+        <title>Spotify</title>
+    </head>
+    <style>
+        /* Left section-START */
+        section {
+            background-color: black;
+            height: 100vh;
+        }
+
+        nav {
+            width: 25%;
+        }
+
+        .nav-1 {
+            display:flex;
+           align-items: center;
+            padding: 20PX 10px 10px 10px;
+            background-color: rgb(32, 32, 32);
+            height: 130px;
+            margin: 8px;
+
+        }
+
+        input {
+            border: none;
+            background-color: rgb(32, 32, 32);
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        input::placeholder {
+            color: rgb(170, 168, 168);
+        }
+
+        .nav-1 ul {
+            padding: 0px;
+            list-style: none;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        main {
+            background-color: rgb(32, 32, 32);
+            height: 580px;
+            width: 75%;
+        }
+
+    
+
+        .bi-plus,.bi-arrow-right-short {
+            margin: 0px 10px 0px 20px;
+            font-size: 25px !important;
+            line-height: 0 !important;
+        }
+        .nav-2{
+            padding: 10PX;
+            background-color: rgb(32, 32, 32);
+            height: 100px;
+            margin: 8px;
+        }
+
+        .nav-2 span {
+
+            line-height: 0px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .btn span {
+            display: inline-block;
+            padding: 14px;
+            font-size: 12px;
+            margin-bottom: 0;
+            background-color: #3c3c3c;
+            border-radius: 16px;
+            width: 71px;
+        }
+
+        .nav-3 {
+            padding: 10px;
+            background-color: rgb(32, 32, 32);
+            height: 457px;
+            margin: 8px;
+            margin-top: -4px;
+            overflow: auto;
+            color: #fff;
+        }
+
+        
+
+        .nav-3 ul {
+            padding: 0px;
+            list-style: none;
+        }
+
+        /* Left section -END */
+
+        main{
+            margin-top: 8px;
+            overflow: auto;
+            height: 700px;
+        }
+        
+        .bi-chevron-left{
+            text-align: center;
+            font-size: 18px;
+            color: #fff!important;
+            background-color: rgba(0, 0, 0, 0.596);
+            border-radius: 21px;
+            padding: 8px;
+            display: inline-block;
+            width: 43px;
+        }
+        
+        .explore{
+            border: none;
+            border-radius: 18px;
+            padding: 4px;
+            display: inline-block;
+            width: 146px;
+            text-align: center;
+            font-size: 15px;
+            color: black;
+            font-weight: 500;
+        }
+        .install{
+            border: none;
+            background-color: black;
+            border-radius: 14px;
+            padding: 4px;
+            display: inline-block;
+            width: 130px;
+            text-align: center;
+            font-size: 15px;
+            color: white;
+            font-weight: 500;
+        }
+    
+
+        #bell{
+            position: relative;
+        }
+        .bi-person, .bi-bell{
+            background-color: black;
+            padding: 8px;
+            border-radius: 20px;
+            display: inline-block;
+            width: 40px;
+            text-align: center;
+        }
+        .bi-dot{
+            position: absolute;
+            top: -17px;
+            right: -10px;
+            color: blue;
+            font-size: 35px;
+        }
+        .resent{
+            display: grid;
+            grid-template-columns:3fr 3fr 3fr  ;
+        }
+        header{
+            position: sticky;
+            top:0px
+        }
+
+        .b-prak ,.kishor,.yoyo{
+            background-color: aliceblue;
+            height: 75px;
+        }
+        .name{
+            font-size: 18px;
+            font-weight: 700;
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            display:flex;
+            align-items: center;
+        }
+        .show{
+            background-color: rgba(18, 19, 19, 0.74);
+            margin: 15px;
+            height: 250px;
+        }
+        .show:hover{
+            transition: 1s;
+            background-color: #3c3c3c;
+        }
+        footer{
+            padding: 30px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            margin-top: -50px;
+            height: 80px;
+            background-color: aquamarine;
+        }
+     
+        .song{
+            margin: -20px;
+        }
+        .play-button{
+            font-size: 36px;
+            display: flex;
+            align-items: baselin;
+            text-align: center;
+        }
+    </style>
+
+    <body>
+        <section class="d-flex justify-content-between">
+
+            <nav>
+                <div class="nav-1 ">
+                    <ul>
+                        <li class="text-white mb-3"><span class="bi bi-house-fill"></span> &nbsp; Home</li>
+                        <li class="text-white-50"><span class="bi bi-search"></span> &nbsp; 
+                            <input type="text"
+                                class="text-white-50" placeholder="Search"></li>
+                    </ul>
+                </div>
+                <div class="nav-2">
+                    <span class="text-white-50 i bi-collection "> &nbsp;Your Librery</span>
+                    <span class=" bi bi-plus text-white-50"></span>
+                    <span class=" bi bi-arrow-right-short text-white-50"></span>
+                    <div class="text-center mt-4 mb-4  p-0  btn">
+                        <span class="text-white">Playlist</span>
+                        <span class="text-white">Artists</span>
+                    </div>
+                </div>
+                <div class="nav-3">
+                    <ul>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/zyan.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>ZYAN</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/arijit.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>Arijit Singh</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/honey.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>Yo Yo Honey Singh</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/atif.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>Atif Aslam</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/arman.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>Armaan Malik</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/justin.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>Justin bieber</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/zyan.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>ZYAN</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/arijit.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>Arijit Singh</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/honey.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>Yo Yo Honey Singh</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/atif.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>Atif Aslam</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/arman.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>Armaan Malik</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex ">
+                                <div class="fig">
+                                    <img src="./images/justin.jpg" alt="" class="  rounded-circle" width="40px"
+                                        height="40px">
+                                </div>
+                                <div class="caption ms-3">
+                                    <div>Justin bieber</div>
+                                    <p class="text-white-50">Artist</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="playsong p-4">
+                <header class="mb-4 d-flex justify-content-between">
+                    <div>
+                        <span class="bi bi-chevron-left text-white-50 me-2"></span>
+                        <span class="bi bi-chevron-right text-white-50 ms-2"></span>
+                    </div>
+                    <div class="right">
+                        <button class="explore me-3">Explore Primeum</button>
+                        <button class="install me-3"><span class="bi bi-download"></span>  Install App</button>
+                        <span class="me-2 bi-bell text-white" id="bell"><span class="bi bi-dot"></span></span>
+                        <span class="me-2 bi-person text-white"></span>
+                    </div>
+                </header>
+                <h2 class="text-white">Good evening</h2>
+                <div class="resent mt-4">
+                    <div class="b-prak m-2">
+                        <div class="d-flex ">
+                            <div class="fig">
+                                <img src="./images/arijit.jpg" alt="" class=" " width="75px"
+                                    height="75px">
+                            </div>
+                            <div class="name ms-3">
+                                <div>Arijit Singh</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kishor m-2">
+                        <div class="d-flex ">
+                            <div class="fig">
+                                <img src="./images/b-praak.jpg" alt="" class=" " width="75px"
+                                    height="75px">
+                            </div>
+                            <div class="name ms-3">
+                                <div>B-praak</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yoyo m-2">
+                        <div class="d-flex ">
+                            <div class="fig-cap ">
+                                <img src="./images/honey.jpg" alt="" class=" " width="75px"
+                                    height="75px">
+                            </div>
+                            <div class="name ms-3">
+                                <div>Yo Yo Honey singh</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="resent mt-1">
+                    <div class="b-prak m-2">
+                        <div class="d-flex ">
+                            <div class="fig">
+                                <img src="./images/arijit.jpg" alt="" class=" " width="75px"
+                                    height="75px">
+                            </div>
+                            <div class="name ms-3">
+                                <div>Arijit Singh</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kishor m-2">
+                        <div class="d-flex ">
+                            <div class="fig">
+                                <img src="./images/b-praak.jpg" alt="" class=" " width="75px"
+                                    height="75px">
+                            </div>
+                            <div class="name ms-3">
+                                <div>B-praak</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yoyo m-2">
+                        <div class="d-flex ">
+                            <div class="fig-cap ">
+                                <img src="./images/honey.jpg" alt="" class=" " width="75px"
+                                    height="75px">
+                            </div>
+                            <div class="name ms-3">
+                                <div>Yo Yo Honey singh</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="mt-4 text-white">Your Show</h2>
+                <div class="Shows row">
+                    <div class="col-2 show text-white text-center p-3">
+                        <img src="./images/ranveer.jpg" alt="" width="130px" height="130" >
+                        <h3 class="mt-2">Ranveer</h3>
+                        <p>Prodcast</p>
+                    </div>
+                    <div class="col-2 show text-white text-center p-3">
+                        <img src="./images/gyan-talk.jpg" alt="" width="130px" height="130"  >
+                        <h3 class="mt-2">gyan-talk</h3>
+                        <p>gyan-talk</p>
+                    </div>
+                    <div class="col-2 show text-white text-center p-3">
+                        <img src="./image/podcast.jpg" alt="" width="130px" height="130"  >
+                        <h3 class="mt-2">xdfhbx</h3>
+                        <p>xfhnx</p>
+                    </div>
+                    <div class="col-2 show text-white text-center p-3">
+                        <img src="./image/fourth.jpg" alt=""  width="130px" height="130" >
+                        <h3 class="mt-2">xdfhbx</h3>
+                        <p>xfhnx</p>
+                    </div>
+                    <div class="col-2 show text-white text-center p-3">
+                        <img src="./image/audio-book.jpg" alt=""  width="130px" height="130"  >
+                        <h3 class="mt-2">xdfhbx</h3>
+                        <p>xfhnx</p>
+                    </div>
+                </div>
+
+                <div class="Shows row">
+                    <div class="col-2 show text-white text-center p-3">
+                        <img src="./image/gyan-talk.jpg" alt="" width="130px" height="130" >
+                        <h3 class="mt-2">xdfhbx</h3>
+                        <p>xfhnx</p>
+                    </div>
+                    <div class="col-2 show text-white text-center p-3">
+                        <img src="./image/ranveer.jpg" alt="" width="130px" height="130"  >
+                        <h3 class="mt-2">xdfhbx</h3>
+                        <p>xfhnx</p>
+                    </div>
+                    <div class="col-2 show text-white text-center p-3">
+                        <img src="./image/podcast.jpg" alt="" width="130px" height="130"  >
+                        <h3 class="mt-2">xdfhbx</h3>
+                        <p>xfhnx</p>
+                    </div>
+                    <div class="col-2 show text-white text-center p-3">
+                        <img src="./image/fourth.jpg" alt=""  width="130px" height="130" >
+                        <h3 class="mt-2">xdfhbx</h3>
+                        <p>xfhnx</p>
+                    </div>
+                    <div class="col-2 show text-white text-center p-3">
+                        <img src="./image/audio-book.jpg" alt=""  width="130px" height="130"  >
+                        <h3 class="mt-2">xdfhbx</h3>
+                        <p>xfhnx</p>
+                    </div>
+                </div>
+            </main>
+        </section>
+       
+
+    </body>
+
+    </html>
