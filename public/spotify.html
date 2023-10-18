@@ -30,7 +30,6 @@
             background-color: rgb(32, 32, 32);
             height: 130px;
             margin: 8px;
-
         }
 
         input {
@@ -99,6 +98,10 @@
         }
 
         
+        h3{
+            font-size: 24px;
+            padding-top: 10px;
+        }
 
         .nav-3 ul {
             padding: 0px;
@@ -216,9 +219,27 @@
             align-items: baselin;
             text-align: center;
         }
+
+        .play{
+            bottom: 0px;
+            position: fixed;
+            height: 90px;
+            width: 100%;
+        }
+
+        .songname p{
+            font-size: 18px;
+        }
+        .artist-name{
+            font-size: 12px !important;
+        }
+        .bi-skip-backward-fill, .bi-play-circle, .bi-skip-forward-fill, .bi-volume-up, .bi-volume-down{
+            font-size: 25px;
+        }
+
     </style>
 
-    <body>
+    <body class="bg-dark">
         <section class="d-flex justify-content-between">
 
             <nav>
@@ -479,7 +500,7 @@
                     <div class="col-2 show text-white text-center p-3">
                         <img src="./images/ranveer.jpg" alt="" width="130px" height="130" >
                         <h3 class="mt-2">Ranveer</h3>
-                        <p>Prodcast</p>
+                        <p>Ranveer</p>
                     </div>
                     <div class="col-2 show text-white text-center p-3">
                         <img src="./images/gyan-talk.jpg" alt="" width="130px" height="130"  >
@@ -487,53 +508,84 @@
                         <p>gyan-talk</p>
                     </div>
                     <div class="col-2 show text-white text-center p-3">
-                        <img src="./image/podcast.jpg" alt="" width="130px" height="130"  >
-                        <h3 class="mt-2">xdfhbx</h3>
-                        <p>xfhnx</p>
+                        <img src="./images/podcast.jpg" alt="" width="130px" height="130"  >
+                        <h3 class="mt-2">Agnetra</h3>
+                        <p>Podcast</p>
                     </div>
                     <div class="col-2 show text-white text-center p-3">
-                        <img src="./image/fourth.jpg" alt=""  width="130px" height="130" >
-                        <h3 class="mt-2">xdfhbx</h3>
-                        <p>xfhnx</p>
+                        <img src="./images/arijit.jpg" alt=""  width="130px" height="130" >
+                        <h3 class="mt-2">Arijit </h3>
+                        <p>Songs</p>
                     </div>
                     <div class="col-2 show text-white text-center p-3">
-                        <img src="./image/audio-book.jpg" alt=""  width="130px" height="130"  >
-                        <h3 class="mt-2">xdfhbx</h3>
-                        <p>xfhnx</p>
+                        <img src="./images/arman.jpg" alt=""  width="130px" height="130"  >
+                        <h3 class="mt-2">Arman</h3>
+                        <p>Songs</p>
                     </div>
                 </div>
 
                 <div class="Shows row">
                     <div class="col-2 show text-white text-center p-3">
-                        <img src="./image/gyan-talk.jpg" alt="" width="130px" height="130" >
-                        <h3 class="mt-2">xdfhbx</h3>
-                        <p>xfhnx</p>
+                        <img src="./images/atif.jpg" alt="" width="130px" height="130" >
+                        <h3 class="mt-2">Atif</h3>
+                        <p>Songs</p>
                     </div>
                     <div class="col-2 show text-white text-center p-3">
-                        <img src="./image/ranveer.jpg" alt="" width="130px" height="130"  >
-                        <h3 class="mt-2">xdfhbx</h3>
-                        <p>xfhnx</p>
+                        <img src="./images/b-praak.jpg" alt="" width="130px" height="130"  >
+                        <h3 class="mt-2">B praak</h3>
+                        <p>Songs</p>
                     </div>
                     <div class="col-2 show text-white text-center p-3">
-                        <img src="./image/podcast.jpg" alt="" width="130px" height="130"  >
-                        <h3 class="mt-2">xdfhbx</h3>
-                        <p>xfhnx</p>
+                        <img src="./images/zyan.jpg" alt="" width="130px" height="130"  >
+                        <h3 class="mt-2">Zyan</h3>
+                        <p>Songs</p>
                     </div>
                     <div class="col-2 show text-white text-center p-3">
-                        <img src="./image/fourth.jpg" alt=""  width="130px" height="130" >
-                        <h3 class="mt-2">xdfhbx</h3>
-                        <p>xfhnx</p>
+                        <img src="./images/justin.jpg" alt=""  width="130px" height="130" >
+                        <h3 class="mt-2">Justin</h3>
+                        <p>Songs</p>
                     </div>
                     <div class="col-2 show text-white text-center p-3">
-                        <img src="./image/audio-book.jpg" alt=""  width="130px" height="130"  >
-                        <h3 class="mt-2">xdfhbx</h3>
-                        <p>xfhnx</p>
+                        <img src="./images/honey.jpg" alt=""  width="130px" height="130"  >
+                        <h3 class="mt-2">Honey</h3>
+                        <p>Songs</p>
                     </div>
                 </div>
-            </main>
+            
+            </main> 
+           
         </section>
-       
+        <div class="d-flex justify-content-between align-item-center bg-dark play p-3">
+            <div>
+                <div class="playsong ">
+                    <div class="d-flex ">
+                        <div class="fig-cap ">
+                            <img src="./images/honey.jpg" alt="" class=" " width="55px"
+                                height="55px">
+                        </div>
+                        <div class="name songname ms-3">
+                            <div class="text-white">Yo Yo Honey singh<span class="ms-5 bi bi-heart"></span>
+                                <p class="artist-name text-white ">Anirudh Ravichander </p>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="song-control">
+                <span class=" text-white me-5 bi bi-skip-backward-fill"></span>
+                <span class="text-white bi bi-play-circle"></span>
+                <span class="text-white ms-5 bi bi-skip-forward-fill"></span>
+            </div>
+
+            <div>
+                <span class="text-white bi bi-volume-up"></span>
+                <span class="ms-5 text-white bi bi-volume-down"></span>
+
+            </div>
+
+        </div>
     </body>
 
     </html>
