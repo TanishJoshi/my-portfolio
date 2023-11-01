@@ -1,0 +1,271 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/bootstrap-icons.svg">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    
+    <script>
+         function AmountChange(){
+    document.getElementById("age").value = document.getElementById("amountRange").value;
+   }
+
+   function YearChange(){
+    document.getElementById("textYears").value = document.getElementById("yearRange").value;
+   }
+
+   function RateChange(){
+    document.getElementById("textRate").value = document.getElementById("rangeRate").value;
+   }
+
+
+   function CalculateClick(){
+        var P = parseInt(document.getElementById("textAmount").value);
+        var R = parseFloat(document.getElementById("textRate").value)/12/100;
+        var N = parseInt(document.getElementById("textYears").value)*12;
+        var EMI = P * R * Math.pow((1+R),N) / Math.pow((1+R),N)-1;
+        document.getElementById("lblResult").innerHTML = "Your EMI amount every month is &#8377;<b>" + Math.round(EMI) + " </b>for " + N + " months."
+   }
+
+
+    </script>
+
+</head>
+<body class="container-fluid bg-dark ">
+    <h1 class="text-light fw-bold text-center mt-4">BMI Calculator</h1>
+
+    <div class="container bg-body-tertiary">
+      
+        <div class="row p-4 mt-4">
+            <div class="col-7 p-3">
+                <div class="row">
+                    <div class="col ">
+                        <span class="fw-bold">Gender:</span>
+                    </div>
+                    <div class="col">
+                        <span class="fw-bold">Age:</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col mt-2 ">
+                      <input type="radio" name="gender" checked> <label for="">Male</label>  <input type="radio" name="gender"> <label for="">Female</label>
+                    </div>
+                    <div class="col mt-2">
+                        <input type="text" id="age" > Year
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col ">
+                        <span class="fw-bold">Height:</span>
+                    </div>
+                    <div class="col ">
+                        <span class="fw-bold">Weight:</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-2 ">
+                      <input type="text" id="height"> CM
+                    </div>
+                    <div class="col mt-2">
+                        <input type="text" id="weight"> KG
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5">
+                <div class="mt-4">
+                    <div class="progress">
+                        <div class="progress-bar bg-dark" style="width: 25%;">
+                            Underweight
+                        </div>
+                        <div class="progress-bar bg-info ms-1" style="width: 25%;">
+                            Normal
+                        </div>
+                        <div class="progress-bar bg-warning ms-1" style="width: 25%;">
+                            Overweight
+                        </div>
+                        <div class="progress-bar bg-danger ms-1" style="width: 25%;">
+                            Obsese
+                        </div>
+                    </div>
+
+                    <div id="YourValue">
+                        <div> You </div>
+                    </div>
+                    <div class="lblResult mt-4">
+                        <h2 class="text-center">6654.4</h2>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center mt-4 ">
+                  <button class="btn btn-primary" id="calculate">Calculate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    
+</body>
+</html> -->
+
+
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: 7.5fr 4.5fr;
+            background-color: gray;
+        }
+        .inner_container{
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+        }
+        .but{
+            grid-column: 1/3;
+            display: flex;
+            justify-content: center
+        }
+    </style>
+    <script>
+        function Calculate(){
+            var male_gender = document.getElementById('male');
+            var female_gender = document.getElementById('female');
+            var foot_height = parseInt(document.getElementById('F_height').value);
+            var inch_height = parseInt(document.getElementById('I_height').value);
+            var age = parseInt(document.getElementById('age').value);
+            var weight = parseInt(document.getElementById('weight').value);
+            var height=(((foot_height*12)+inch_height)*2.54)*(((foot_height*12)+inch_height)*2.54)/10000;
+            var BMI;
+            if(male_gender.checked){
+                BMI = weight/height;
+                BMI = Math.round(BMI);
+                if(BMI<18.5){
+                    document.getElementById('slider').style.left='10%';
+                    document.getElementById('msg').innerHTML='You are Under-weight';
+                    document.getElementById('BMI_value').innerHTML=BMI;
+                } else if(BMI >= 18.5 && BMI <= 24.9){
+                    document.getElementById('slider').style.left='35%';
+                    document.getElementById('msg').innerHTML='You are Healthy';
+                    document.getElementById('BMI_value').innerHTML=BMI;
+                }else if(BMI >= 25 && BMI <= 29.9){
+                    document.getElementById('slider').style.left='60%';
+                    document.getElementById('msg').innerHTML='You are Over-weight';
+                    document.getElementById('BMI_value').innerHTML=BMI;
+                }else if(BMI >= 30 && BMI <= 35){
+                    document.getElementById('slider').style.left='85%';
+                    document.getElementById('msg').innerHTML='Obese';
+                    document.getElementById('BMI_value').innerHTML=BMI;
+                }
+                document.getElementById('quote').style.display="block";
+            };
+            if(female_gender.checked){
+                BMI = weight/height;
+                BMI = Math.round(BMI);
+                console.log(BMI);
+            };
+            if(BMI<18.5){
+                document.getElementById('slider').style.left='10%';
+                document.getElementById('msg').innerHTML='You are Under-weight';
+                document.getElementById('BMI_value').innerHTML=BMI;
+            } else if(BMI >= 18.5 && BMI <= 24.9){
+                document.getElementById('slider').style.left='35%';
+                document.getElementById('msg').innerHTML='You are Healthy';
+                document.getElementById('BMI_value').innerHTML=BMI;
+            }else if(BMI >= 25 && BMI <= 29.9){
+                document.getElementById('slider').style.left='60%';
+                document.getElementById('msg').innerHTML='You are Over-weight';
+                document.getElementById('BMI_value').innerHTML=BMI;
+            }else if(BMI >= 30 && BMI <= 35){
+                document.getElementById('slider').style.left='85%';
+                document.getElementById('msg').innerHTML='Obese';
+                document.getElementById('BMI_value').innerHTML=BMI;
+            }
+            document.getElementById('quote').style.display="block";
+        }
+    </script>
+</head>
+<body class=" d-flex justify-content-center align-items-center" style="height: 100vh;" data-new-gr-c-s-check-loaded="14.1135.0" data-gr-ext-installed="">
+    <div class=" border border-2 border-black" style="background-color: black;">
+        <div class="d-flex justify-content-center align-items-center ">
+            <div>
+                <h1 class="mt-4 text-light">BMI Calculator</h1>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="container p-2 mt-4 " style="background-color: yellow;">
+                <div class="inner_container">
+                    <div class="p-2" style="height: 250px;">
+                        <div class="mb-4 fw-bold " >Gender<br>
+                            <input type="radio" name="gender" id="male" > <label class=" me-4"> Male</label>
+                            <input type="radio" name="gender" id="female" > <label class="form-check-label"> Female</label>
+                        </div>
+                        <div class="mt-4 w-50 ">
+                            <label for="height"  class="fw-bold mb-2 ">Height</label><br>
+                            <div class="height d-flex">
+                                <input type="number" name="height"  id="F_height"  placeholder="foot" class="form-control me-3 w-50">
+                                <input type="number" name="height" id="I_height" class="form-control w-50" placeholder="inch">
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" me-3 p-2" style="height: 250px;">
+                        <div class="mb-4">
+                            <label for="age" class="fw-bold mb-1">Age</label><br>
+                            <input type="number" class=" form-control w-100" name="age" min="2" max="120" step="1" required="" id="age" placeholder="Enter Age" >
+                        </div>
+                        <div class="mt-4">
+                            <label for="weight" class="mb-1 fw-bold">Weight</label><br>
+                            <input type="number" class="form-control" name="weight" id="weight" placeholder="in Kg" >
+                        </div>
+                    </div>
+                    <div class="but">
+                        <button class="border-2 btn btn-outline-dark fw-bold p-3 m-4" onclick="Calculate()">Calculate your BMI</button>
+                    </div>
+                </div>
+                <div>
+                    <div class=" text-light bg-dark mt-5 me-3 p-2">
+                        <div>
+                        <h3 class="text-center" >your bmi is</h3>
+                        <h2 id="BMI_value"  class="text-center mt-3 border border-1 border-warning "> - - </h2>
+                        <div class="position-relative mt-3">
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-info " style="width: 25%;"><span class="text-dark bi bi-emoji-neutral"></span></div>
+                                <div class="progress-bar bg-success " style="width: 25%;"><span class="bi bi-emoji-laughing"></span></div>
+                                <div class="progress-bar bg-warning " style="width: 25%;"><span class=" text-dark bi bi-emoji-astonished"></span></div>
+                                <div class="progress-bar bg-danger " style="width: 25%;"> <span class="bi bi-emoji-surprise"></span> </div>
+                            </div>
+
+                           
+
+
+                            <div style="background-color: rgb(255, 255, 255); width:17px; height: 17px; position: absolute; left:1%; top:20px; transition: 2s;  border-radius: 17px;" class="mb-2" id="slider"></div>
+                            <div style="font-size: 13px;" class="mt-4">
+                                <span class="me-4 ">Under Weight</span><span class="me-3">Normal Weight</span><span class="ms-2">Over Weight</span><span class="ms-4" >Obese</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-center mt-4" id="msg"></h4>
+                        </div>
+                        
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
