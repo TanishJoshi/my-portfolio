@@ -35,13 +35,17 @@
 </head>
 <style>
     body {
-        background-color: #f2f2f2;
+        background: linear-gradient(to right top, #4389A2, #68B3C8, #94D7E4, #C7E9F0, #F2F2F2);
         font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
     }
 
     .calculator {
         max-width: 400px;
-        margin: 0 auto;
         background-color: #fff;
         border-radius: 10px;
         padding: 20px;
@@ -54,6 +58,10 @@
         font-size: 20px;
         text-align: right;
         margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        outline: none;
     }
 
     .buttons {
@@ -69,22 +77,17 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
     button:hover {
         background-color: #d2d2d2;
     }
-
-    body {
-        background-image: linear-gradient(to right top, #f46b45, #eea849, #e1c35c, #c5d169, #a8dd76, #8dd46e, #6dcf66, #4ec95d, #3db351, #35a84a, #309d43, #32923d);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
 </style>
 
 <body>
     <div class="calculator">
+        <h2 style="text-align: center; color: #333;">Calculator</h2>
         <input type="text" id="result" readonly>
         <div class="buttons">
             <button onclick="clearResult()">C</button>
@@ -105,7 +108,6 @@
             <button onclick="calculate()">=</button>
         </div>
     </div>
-
 </body>
 
 </html>
